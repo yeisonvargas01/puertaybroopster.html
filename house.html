@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Mi Casa</title>
+
+    <style>
+        body,
+        html {
+            margin: 0;
+        }
+
+        .wall {
+            background-color: aqua;
+            width: 100%;
+            height: 100vh;
+            position: relative;
+        }
+
+        .door {
+            position: absolute;
+            bottom: 0;
+            left: 60px;
+            padding-top: 150px;
+            padding-bottom: 150px;
+            padding-left: 20px;
+            width: 120px;
+            border: 3px solid #393636;
+            height: 200px;
+            width: 180px;
+            background-color: #ba7738;
+            transform-origin: left;
+            transition: transform 0.45s;
+        }
+
+        .door.open {
+            transform: perspective(1200px) rotateY(45deg);
+        }
+
+        .shape {
+            height: 8px;
+            width: 8px;
+            border-radius: 4px;
+            background-color: black;
+        }
+
+        .window {
+            display: grid;
+            grid-template-columns: 61px 61px;
+            position: absolute;
+            height: 120px;
+            top: 100px;
+            right: 60px;
+            border: 2px solid #ba7738;
+        }
+
+        .glass {
+            margin: auto;
+            width: 60px;
+            height: 60px;
+            border: 1px solid black;
+            background-color: #c9c9c9b0;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="wall" class="wall">
+        <button onclick="abrir()">Abrir</button>
+        <button onclick="cerrar()">Cerrar</button>
+
+        <div id="door" class="door">
+            <div class="shape"></div>
+        </div>
+
+        <div class="window">
+            <div class="glass"></div>
+            <div class="glass"></div>
+            <div class="glass"></div>
+            <div class="glass"></div>
+        </div>
+    </div>
+
+    <script>
+        const door = document.getElementById("door");
+
+        function abrir() {
+            door.classList.add("open")
+        }
+
+        function cerrar() {
+            door.classList.remove("open")
+        }
+
+    </script>
+</body>
+
+</html>
